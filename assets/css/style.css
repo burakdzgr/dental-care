@@ -137,8 +137,6 @@ a:hover::after{
 .seofy-module-time-line-vertical .time-line-date-wrap{
   position: relative;
   z-index: 1;
-  margin-left: calc( 50% - 10px);
-  margin-right: 50px;
 }
 .seofy-module-time-line-vertical.appear-anim .time-line-item .seofy-hexagon{
   opacity: 0;
@@ -197,11 +195,9 @@ a:hover::after{
   transform: translateX(0);
 }
 .seofy-module-time-line-vertical .time-line-date{
-  position: absolute;
   z-index: 1;
   top: 0;
   right: 100%;
-  padding-right: 50px;
   font-size: 24px;
   font-weight: 700;
   line-height: 20px;
@@ -210,7 +206,6 @@ a:hover::after{
 }
 .seofy-module-time-line-vertical .time-line-content{
   position: relative;
-  z-index: 1;
   padding: 23px 30px;
   width: 100%;
   max-width: 345px;
@@ -273,18 +268,11 @@ a:hover::after{
   margin-bottom: 40px;
   transition: opacity 0.5s;
 }
-.seofy-module-time-line-vertical .company-time-line-item:nth-child(even){
- flex-direction: row-reverse;
-}
-.seofy-module-time-line-vertical .company-time-line-item:nth-child(even) .time-line-date-wrap{
-  margin-right: calc( 50% - 10px);
-  margin-left: 50px;
-}
+
+
 .seofy-module-time-line-vertical .company-time-line-item:nth-child(even) .time-line-date{
   right: auto;
   left: 100%;
-  padding-left: 50px;
-  padding-right: 0;
 }
 .seofy-module-time-line-vertical .company-time-line-item:hover .seofy-hexagon:nth-child(2){
   animation: pulse-hexagon 2s infinite;
@@ -301,4 +289,21 @@ a:hover::after{
 }
 .seofy-module-time-line-vertical .company-time-line-item:hover:nth-child(even) .time-line-date{
   transform: translate(5px)
+}
+@media only screen and (min-width: 768px) {
+  .seofy-module-time-line-vertical .time-line-date-wrap{
+    margin-left: calc( 50% - 10px);
+    margin-right: 50px;
+  }
+  .seofy-module-time-line-vertical .company-time-line-item:nth-child(even){
+    flex-direction: row-reverse;
+   }
+  .seofy-module-time-line-vertical .company-time-line-item:nth-child(even) .time-line-date-wrap{
+    margin-right: calc( 50% - 10px);
+    margin-left: 50px;
+  }
+  .seofy-module-time-line-vertical .company-time-line-item:nth-child(even) .time-line-date{
+    padding-left: 50px;
+    padding-right: 0;
+  }
 }

@@ -52,53 +52,66 @@
             </div>
         </div>
     </section>
-    <header class="header shadow-lg border-b">
-        <div class="container mx-auto px-4">
-            <div class="header-items flex flex-col sm:flex-row items-center justify-between py-2.5">
-                <div class="header-logo w-auto">
-                    <div class="flex flex-wrap items-center">
-                        <div class="w-auto sm:mr-14">
-                            <a href="#">
-                                <img class="w-20 h-20 object-contain" src="/assets/img/logo.webp" alt="">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <nav class="header-nav">
-                    <ul class="flex">
-                        <li>
-                            <a href="javascript:;" class="block text-gray-600 text-lg font-normal px-4 hover:text-[#005b88]">Home</a>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="block text-gray-600 text-lg font-normal px-4 hover:text-[#005b88]">About Us</a>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="block text-gray-600 text-lg font-normal px-4 hover:text-[#005b88]">Services</a>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="block text-gray-600 text-lg font-normal px-4 hover:text-[#005b88]">Smile Gallery</a>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="block text-gray-600 text-lg font-normal px-4 hover:text-[#005b88]">Blog</a>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="block text-gray-600 text-lg font-normal px-4 hover:text-[#005b88]">Contact Us</a>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="w-auto">
-                    <ul class="flex flex-col sm:flex-row items-center justify-center mt-4 sm:mt-0">
-                        <li class="font-heading text-white hover:text-gray-200 text-lg mt-4 sm:mt-0">
-                            <a href="javascript:;" class=" flex items-center bg-[#005b88] transition duration-200 rounded-lg text-white py-2 px-4 group">
-                                <svg class="w-4 h-4 mr-1.5 mt-0.5 " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 418.135 418.135"><path d="M198.929.242C88.5 5.5 1.356 97.466 1.691 208.02c.102 33.672 8.231 65.454 22.571 93.536L2.245 408.429c-1.191 5.781 4.023 10.843 9.766 9.483l104.723-24.811c26.905 13.402 57.125 21.143 89.108 21.631 112.869 1.724 206.982-87.897 210.5-200.724C420.113 93.065 320.295-5.538 198.929.242zm124.957 321.955c-30.669 30.669-71.446 47.559-114.818 47.559-25.396 0-49.71-5.698-72.269-16.935l-14.584-7.265-64.206 15.212 13.515-65.607-7.185-14.07c-11.711-22.935-17.649-47.736-17.649-73.713 0-43.373 16.89-84.149 47.559-114.819 30.395-30.395 71.837-47.56 114.822-47.56 43.372.001 84.147 16.891 114.816 47.559 30.669 30.669 47.559 71.445 47.56 114.817-.001 42.986-17.166 84.428-47.561 114.822z" style="fill:#fff"/><path d="m309.712 252.351-40.169-11.534a14.971 14.971 0 0 0-14.816 3.903l-9.823 10.008c-4.142 4.22-10.427 5.576-15.909 3.358-19.002-7.69-58.974-43.23-69.182-61.007-2.945-5.128-2.458-11.539 1.158-16.218l8.576-11.095a14.97 14.97 0 0 0 1.847-15.21l-16.9-38.223c-4.048-9.155-15.747-11.82-23.39-5.356-11.211 9.482-24.513 23.891-26.13 39.854-2.851 28.144 9.219 63.622 54.862 106.222 52.73 49.215 94.956 55.717 122.449 49.057 15.594-3.777 28.056-18.919 35.921-31.317 5.362-8.453 1.128-19.679-8.494-22.442z" style="fill:#fff"/></svg>
-                                Randevu Al
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+    <header x-data="{ navbarOpen: false } " class="flex w-full items-center bg-white shadow-lg border-b">
+        <div class="container mx-auto">
+          <div class="relative -mx-4 flex items-center justify-between">
+            <div class="w-60 max-w-full px-4">
+              <a href="javascript:void(0)" class="block w-full py-5">
+                <img class="w-full object-cover" src="/assets/img/logo.webp" alt="">
+              </a>
             </div>
+            <div class="flex w-full items-center justify-between px-4">
+              <div>
+                <button @click="navbarOpen = !navbarOpen" :class="navbarOpen && 'navbarTogglerActive' " id="navbarToggler" class="ring-primary absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] lg:hidden">
+                  <span class="bg-[#005b88] relative my-[6px] block h-[2px] w-[30px]"></span>
+                  <span class="bg-[#005b88] relative my-[6px] block h-[2px] w-[30px]"></span>
+                  <span class="bg-[#005b88] relative my-[6px] block h-[2px] w-[30px]"></span>
+                </button>
+                <nav :class="!navbarOpen && 'hidden' " id="navbarCollapse" class="absolute right-4 top-full w-full max-w-[250px] rounded-lg bg-white py-5 px-6 shadow lg:static lg:block lg:w-full lg:max-w-full lg:shadow-none z-40">
+                  <ul class="block lg:flex">
+                    <li>
+                      <a href="javascript:;" class="block text-gray-600 text-lg font-normal p-4 hover:text-[#005b88]">Home</a>
+                    </li>
+                    <li>
+                      <a href="javascript:;" class="block text-gray-600 text-lg font-normal p-4 hover:text-[#005b88]">About Us</a>
+                    </li>
+                    <li>
+                      <a href="javascript:;" class="block text-gray-600 text-lg font-normal p-4 hover:text-[#005b88]">Services</a>
+                    </li>
+                    <li>
+                      <a href="javascript:;" class="block text-gray-600 text-lg font-normal p-4 hover:text-[#005b88]">Smile Gallery</a>
+                    </li>
+                    <li>
+                      <a href="javascript:;" class="block text-gray-600 text-lg font-normal p-4 hover:text-[#005b88]">Blog</a>
+                    </li>
+                    <li>
+                      <a href="javascript:;" class="block text-gray-600 text-lg font-normal p-4 hover:text-[#005b88]">Contact Us</a>
+                    </li>
+                    <li class="flex lg:hidden">
+                      <a href="javascript:;" class=" flex items-center bg-[#005b88] transition duration-200 rounded-lg text-white py-2 px-4 group">
+                        <svg class="w-4 h-4 mr-1.5 mt-0.5 " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 418.135 418.135">
+                          <path d="M198.929.242C88.5 5.5 1.356 97.466 1.691 208.02c.102 33.672 8.231 65.454 22.571 93.536L2.245 408.429c-1.191 5.781 4.023 10.843 9.766 9.483l104.723-24.811c26.905 13.402 57.125 21.143 89.108 21.631 112.869 1.724 206.982-87.897 210.5-200.724C420.113 93.065 320.295-5.538 198.929.242zm124.957 321.955c-30.669 30.669-71.446 47.559-114.818 47.559-25.396 0-49.71-5.698-72.269-16.935l-14.584-7.265-64.206 15.212 13.515-65.607-7.185-14.07c-11.711-22.935-17.649-47.736-17.649-73.713 0-43.373 16.89-84.149 47.559-114.819 30.395-30.395 71.837-47.56 114.822-47.56 43.372.001 84.147 16.891 114.816 47.559 30.669 30.669 47.559 71.445 47.56 114.817-.001 42.986-17.166 84.428-47.561 114.822z" style="fill:#fff" />
+                          <path d="m309.712 252.351-40.169-11.534a14.971 14.971 0 0 0-14.816 3.903l-9.823 10.008c-4.142 4.22-10.427 5.576-15.909 3.358-19.002-7.69-58.974-43.23-69.182-61.007-2.945-5.128-2.458-11.539 1.158-16.218l8.576-11.095a14.97 14.97 0 0 0 1.847-15.21l-16.9-38.223c-4.048-9.155-15.747-11.82-23.39-5.356-11.211 9.482-24.513 23.891-26.13 39.854-2.851 28.144 9.219 63.622 54.862 106.222 52.73 49.215 94.956 55.717 122.449 49.057 15.594-3.777 28.056-18.919 35.921-31.317 5.362-8.453 1.128-19.679-8.494-22.442z" style="fill:#fff" />
+                        </svg> Randevu Al </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="w-auto hidden lg:flex">
+                <ul class="flex flex-col sm:flex-row items-center justify-center mt-4 sm:mt-0">
+                  <li class="font-heading text-white hover:text-gray-200 text-lg mt-4 sm:mt-0">
+                    <a href="javascript:;" class=" flex items-center bg-[#005b88] transition duration-200 rounded-lg text-white py-2 px-4 group">
+                      <svg class="w-4 h-4 mr-1.5 mt-0.5 " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 418.135 418.135">
+                        <path d="M198.929.242C88.5 5.5 1.356 97.466 1.691 208.02c.102 33.672 8.231 65.454 22.571 93.536L2.245 408.429c-1.191 5.781 4.023 10.843 9.766 9.483l104.723-24.811c26.905 13.402 57.125 21.143 89.108 21.631 112.869 1.724 206.982-87.897 210.5-200.724C420.113 93.065 320.295-5.538 198.929.242zm124.957 321.955c-30.669 30.669-71.446 47.559-114.818 47.559-25.396 0-49.71-5.698-72.269-16.935l-14.584-7.265-64.206 15.212 13.515-65.607-7.185-14.07c-11.711-22.935-17.649-47.736-17.649-73.713 0-43.373 16.89-84.149 47.559-114.819 30.395-30.395 71.837-47.56 114.822-47.56 43.372.001 84.147 16.891 114.816 47.559 30.669 30.669 47.559 71.445 47.56 114.817-.001 42.986-17.166 84.428-47.561 114.822z" style="fill:#fff" />
+                        <path d="m309.712 252.351-40.169-11.534a14.971 14.971 0 0 0-14.816 3.903l-9.823 10.008c-4.142 4.22-10.427 5.576-15.909 3.358-19.002-7.69-58.974-43.23-69.182-61.007-2.945-5.128-2.458-11.539 1.158-16.218l8.576-11.095a14.97 14.97 0 0 0 1.847-15.21l-16.9-38.223c-4.048-9.155-15.747-11.82-23.39-5.356-11.211 9.482-24.513 23.891-26.13 39.854-2.851 28.144 9.219 63.622 54.862 106.222 52.73 49.215 94.956 55.717 122.449 49.057 15.594-3.777 28.056-18.919 35.921-31.317 5.362-8.453 1.128-19.679-8.494-22.442z" style="fill:#fff" />
+                      </svg> Randevu Al </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-    </header>
+      </header>
     <section class="hero relative overflow-hidden bg-[url('/assets/img/hero/hero-image-2.png')] bg-cover">
        <div class="bg-overlay backdrop-blur-xl">
             <div class="container mx-auto px-4 px-4">
@@ -107,7 +120,7 @@
                         <h1 class="mb-5 font-heading text-4xl xl:text-6xl text-dark font-bold">İstanbul Dental Care'de, Gülüşünüzü Yeniden 
                             <span class="inline-block px-2 py-1 relative bg-green-400 text-white" style="border-radius: 91% 9% 90% 10% / 29% 82% 18% 71%">Keşfedin</span>
                         </h1>
-                        <p class="mb-14 font-heading text-gray-600 font-medium text-normal">Gülmek hayatta en çok kas kullandığımız harekettir. Sık sık gülümseyen insanların daha mutlu oldukları ve çevrelerinde daha pozitif izlenim bıraktıkları bilinmektedir. IDC ailesi olarak, en büyük motivasyonumuz hastalarımızı daha mutlu ve kendine güvenen bir versiyona dönüştürmektir.</p>
+                        <p class="mb-14 font-heading text-gray-600 font-normal text-normal">Gülmek hayatta en çok kas kullandığımız harekettir. Sık sık gülümseyen insanların daha mutlu oldukları ve çevrelerinde daha pozitif izlenim bıraktıkları bilinmektedir. IDC ailesi olarak, en büyük motivasyonumuz hastalarımızı daha mutlu ve kendine güvenen bir versiyona dönüştürmektir.</p>
                         <div class="flex flex-wrap -m-3">
                             <div class="w-full lg:w-auto p-3">
                                 <a href="javascript:;" class="font-heading block md:inline-block text-center w-full px-6 py-4 text-base text-white bg-[#005b88] hover:bg-[#005b88][#7abad7] rounded-md transition-all">İletişime Geç</a>
@@ -329,111 +342,111 @@
                 </div>
             </div>
             <div class="seofy-module-time-line-vertical relative mt-20">
-                <div id="time-line-1" class="company-time-line-item item-show">
-                  <div class="time-line-date-wrap">
+                <div id="time-line-1" class="company-time-line-item item-show flex flex-col md:flex-row mt-[40px] md:mt-0">
+                  <div class="time-line-date-wrap flex flex-col items-center justify-center md:flex-row">
                     <div class="seofy-hexagon">
                       <svg style=" fill: #ffa705;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177.4 197.4">
                         <path d="M0,58.4v79.9c0,6.5,3.5,12.6,9.2,15.8l70.5,40.2c5.6,3.2,12.4,3.2,18,0l70.5-40.2c5.7-3.2,9.2-9.3,9.2-15.8V58.4 c0-6.5-3.5-12.6-9.2-15.8L97.7,2.4c-5.6-3.2-12.4-3.2-18,0L9.2,42.5C3.5,45.8,0,51.8,0,58.4z"></path>
                       </svg>
+                      <div class="seofy-hexagon">
+                        <svg style="filter: drop-shadow(4px 5px 4px rgba(255,167,5,0.3)); fill: #ffa705;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177.4 197.4">
+                          <path d="M0,58.4v79.9c0,6.5,3.5,12.6,9.2,15.8l70.5,40.2c5.6,3.2,12.4,3.2,18,0l70.5-40.2c5.7-3.2,9.2-9.3,9.2-15.8V58.4 c0-6.5-3.5-12.6-9.2-15.8L97.7,2.4c-5.6-3.2-12.4-3.2-18,0L9.2,42.5C3.5,45.8,0,51.8,0,58.4z"></path>
+                        </svg>
+                      </div>
                     </div>
-                    <div class="seofy-hexagon">
-                      <svg style="filter: drop-shadow(4px 5px 4px rgba(255,167,5,0.3)); fill: #ffa705;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177.4 197.4">
-                        <path d="M0,58.4v79.9c0,6.5,3.5,12.6,9.2,15.8l70.5,40.2c5.6,3.2,12.4,3.2,18,0l70.5-40.2c5.7-3.2,9.2-9.3,9.2-15.8V58.4 c0-6.5-3.5-12.6-9.2-15.8L97.7,2.4c-5.6-3.2-12.4-3.2-18,0L9.2,42.5C3.5,45.8,0,51.8,0,58.4z"></path>
-                      </svg>
-                    </div>
-                    <h4 class="time-line-date text-[#005b88]">Contact Us</h4>
+                    <h4 class="time-line-date text-[#005b88] md:absolute pr-0 md:pr-[50px] mt-4 md:mt-0 ">Contact Us</h4>
                   </div>
-                  <div class="time-line-content">
+                  <div class="time-line-content mt-[20px] md:mt-0 z-40">
                     <div class="time-line-descr text-gray-600">When you decide to receive medical treatment with us, call us and we'll guide you through the process.</div>
                   </div>
                 </div>
-                <div id="time-line-2" class="company-time-line-item item-show">
-                  <div class="time-line-date-wrap">
+                <div id="time-line-2" class="company-time-line-item item-show flex flex-col md:flex-row mt-[40px] md:mt-0">
+                    <div class="time-line-date-wrap flex flex-col items-center justify-center md:flex-row">
                     <div class="seofy-hexagon">
                       <svg style=" fill: #ff5600;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177.4 197.4">
                         <path d="M0,58.4v79.9c0,6.5,3.5,12.6,9.2,15.8l70.5,40.2c5.6,3.2,12.4,3.2,18,0l70.5-40.2c5.7-3.2,9.2-9.3,9.2-15.8V58.4 c0-6.5-3.5-12.6-9.2-15.8L97.7,2.4c-5.6-3.2-12.4-3.2-18,0L9.2,42.5C3.5,45.8,0,51.8,0,58.4z"></path>
                       </svg>
+                      <div class="seofy-hexagon">
+                        <svg style="filter: drop-shadow(4px 5px 4px rgba(255,86,0,0.3)); fill: #ff5600;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177.4 197.4">
+                          <path d="M0,58.4v79.9c0,6.5,3.5,12.6,9.2,15.8l70.5,40.2c5.6,3.2,12.4,3.2,18,0l70.5-40.2c5.7-3.2,9.2-9.3,9.2-15.8V58.4 c0-6.5-3.5-12.6-9.2-15.8L97.7,2.4c-5.6-3.2-12.4-3.2-18,0L9.2,42.5C3.5,45.8,0,51.8,0,58.4z"></path>
+                        </svg>
+                      </div>
                     </div>
-                    <div class="seofy-hexagon">
-                      <svg style="filter: drop-shadow(4px 5px 4px rgba(255,86,0,0.3)); fill: #ff5600;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177.4 197.4">
-                        <path d="M0,58.4v79.9c0,6.5,3.5,12.6,9.2,15.8l70.5,40.2c5.6,3.2,12.4,3.2,18,0l70.5-40.2c5.7-3.2,9.2-9.3,9.2-15.8V58.4 c0-6.5-3.5-12.6-9.2-15.8L97.7,2.4c-5.6-3.2-12.4-3.2-18,0L9.2,42.5C3.5,45.8,0,51.8,0,58.4z"></path>
-                      </svg>
-                    </div>
-                    <h4 class="time-line-date text-[#005b88]">Meet Your Patient Coordinator</h4>
+                    <h4 class="time-line-date text-[#005b88] md:absolute pr-0 md:pr-[50px] mt-4 md:mt-0 ">Meet Your Patient Coordinator</h4>
                   </div>
-                  <div class="time-line-content">
+                  <div class="time-line-content mt-[20px] md:mt-0 z-40">
                     <div class="time-line-descr text-gray-600">After contacting us, you'll meet your patient coordinator, who will provide you with in-depth information about the treatments available and answer all of your questions.</div>
                   </div>
                 </div>
-                <div id="time-line-3" class="company-time-line-item item-show">
-                  <div class="time-line-date-wrap">
+                <div id="time-line-3" class="company-time-line-item item-show flex flex-col md:flex-row mt-[40px] md:mt-0">
+                    <div class="time-line-date-wrap flex flex-col items-center justify-center md:flex-row">
                     <div class="seofy-hexagon">
                       <svg style=" fill: #69e9f2;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177.4 197.4">
                         <path d="M0,58.4v79.9c0,6.5,3.5,12.6,9.2,15.8l70.5,40.2c5.6,3.2,12.4,3.2,18,0l70.5-40.2c5.7-3.2,9.2-9.3,9.2-15.8V58.4 c0-6.5-3.5-12.6-9.2-15.8L97.7,2.4c-5.6-3.2-12.4-3.2-18,0L9.2,42.5C3.5,45.8,0,51.8,0,58.4z"></path>
                       </svg>
+                      <div class="seofy-hexagon">
+                        <svg style="filter: drop-shadow(4px 5px 4px rgba(105,233,242,0.3)); fill: #69e9f2;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177.4 197.4">
+                          <path d="M0,58.4v79.9c0,6.5,3.5,12.6,9.2,15.8l70.5,40.2c5.6,3.2,12.4,3.2,18,0l70.5-40.2c5.7-3.2,9.2-9.3,9.2-15.8V58.4 c0-6.5-3.5-12.6-9.2-15.8L97.7,2.4c-5.6-3.2-12.4-3.2-18,0L9.2,42.5C3.5,45.8,0,51.8,0,58.4z"></path>
+                        </svg>
+                      </div>
                     </div>
-                    <div class="seofy-hexagon">
-                      <svg style="filter: drop-shadow(4px 5px 4px rgba(105,233,242,0.3)); fill: #69e9f2;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177.4 197.4">
-                        <path d="M0,58.4v79.9c0,6.5,3.5,12.6,9.2,15.8l70.5,40.2c5.6,3.2,12.4,3.2,18,0l70.5-40.2c5.7-3.2,9.2-9.3,9.2-15.8V58.4 c0-6.5-3.5-12.6-9.2-15.8L97.7,2.4c-5.6-3.2-12.4-3.2-18,0L9.2,42.5C3.5,45.8,0,51.8,0,58.4z"></path>
-                      </svg>
-                    </div>
-                    <h4 class="time-line-date text-[#005b88]">Find Out Your Options</h4>
+                    <h4 class="time-line-date text-[#005b88] md:absolute pr-0 md:pr-[50px] mt-4 md:mt-0 ">Find Out Your Options</h4>
                   </div>
-                  <div class="time-line-content">
+                  <div class="time-line-content mt-[20px] md:mt-0 z-40">
                     <div class="time-line-descr text-gray-600">You'll find out about your treatment options, after which you can evaluate the pros and cons, along with your budget to make a well-informed decision.</div>
                   </div>
                 </div>
-                <div id="time-line-4" class="company-time-line-item item-show">
-                  <div class="time-line-date-wrap">
+                <div id="time-line-4" class="company-time-line-item item-show flex flex-col md:flex-row mt-[40px] md:mt-0">
+                    <div class="time-line-date-wrap flex flex-col items-center justify-center md:flex-row">
                     <div class="seofy-hexagon">
                       <svg style=" fill: #12affe;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177.4 197.4">
                         <path d="M0,58.4v79.9c0,6.5,3.5,12.6,9.2,15.8l70.5,40.2c5.6,3.2,12.4,3.2,18,0l70.5-40.2c5.7-3.2,9.2-9.3,9.2-15.8V58.4 c0-6.5-3.5-12.6-9.2-15.8L97.7,2.4c-5.6-3.2-12.4-3.2-18,0L9.2,42.5C3.5,45.8,0,51.8,0,58.4z"></path>
                       </svg>
+                      <div class="seofy-hexagon">
+                        <svg style="filter: drop-shadow(4px 5px 4px rgba(18,175,254,0.3)); fill: #12affe;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177.4 197.4">
+                          <path d="M0,58.4v79.9c0,6.5,3.5,12.6,9.2,15.8l70.5,40.2c5.6,3.2,12.4,3.2,18,0l70.5-40.2c5.7-3.2,9.2-9.3,9.2-15.8V58.4 c0-6.5-3.5-12.6-9.2-15.8L97.7,2.4c-5.6-3.2-12.4-3.2-18,0L9.2,42.5C3.5,45.8,0,51.8,0,58.4z"></path>
+                        </svg>
+                      </div>
                     </div>
-                    <div class="seofy-hexagon">
-                      <svg style="filter: drop-shadow(4px 5px 4px rgba(18,175,254,0.3)); fill: #12affe;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177.4 197.4">
-                        <path d="M0,58.4v79.9c0,6.5,3.5,12.6,9.2,15.8l70.5,40.2c5.6,3.2,12.4,3.2,18,0l70.5-40.2c5.7-3.2,9.2-9.3,9.2-15.8V58.4 c0-6.5-3.5-12.6-9.2-15.8L97.7,2.4c-5.6-3.2-12.4-3.2-18,0L9.2,42.5C3.5,45.8,0,51.8,0,58.4z"></path>
-                      </svg>
-                    </div>
-                    <h4 class="time-line-date text-[#005b88]">Arrannge Your Flight</h4>
+                    <h4 class="time-line-date text-[#005b88] md:absolute pr-0 md:pr-[50px] mt-4 md:mt-0 ">Arrannge Your Flight</h4>
                   </div>
-                  <div class="time-line-content">
+                  <div class="time-line-content mt-[20px] md:mt-0 z-40">
                     <div class="time-line-descr text-gray-600">We can assist you in arranging your flight so that you can enjoy your trip with ease.</div>
                   </div>
                 </div>
-                <div id="time-line-5" class="company-time-line-item item-show">
-                  <div class="time-line-date-wrap">
+                <div id="time-line-5" class="company-time-line-item item-show flex flex-col md:flex-row mt-[40px] md:mt-0">
+                    <div class="time-line-date-wrap flex flex-col items-center justify-center md:flex-row">
                     <div class="seofy-hexagon">
                       <svg style=" fill: #3224e9;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177.4 197.4">
                         <path d="M0,58.4v79.9c0,6.5,3.5,12.6,9.2,15.8l70.5,40.2c5.6,3.2,12.4,3.2,18,0l70.5-40.2c5.7-3.2,9.2-9.3,9.2-15.8V58.4 c0-6.5-3.5-12.6-9.2-15.8L97.7,2.4c-5.6-3.2-12.4-3.2-18,0L9.2,42.5C3.5,45.8,0,51.8,0,58.4z"></path>
                       </svg>
+                      <div class="seofy-hexagon">
+                        <svg style="filter: drop-shadow(4px 5px 4px rgba(50,36,233,0.3)); fill: #3224e9;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177.4 197.4">
+                          <path d="M0,58.4v79.9c0,6.5,3.5,12.6,9.2,15.8l70.5,40.2c5.6,3.2,12.4,3.2,18,0l70.5-40.2c5.7-3.2,9.2-9.3,9.2-15.8V58.4 c0-6.5-3.5-12.6-9.2-15.8L97.7,2.4c-5.6-3.2-12.4-3.2-18,0L9.2,42.5C3.5,45.8,0,51.8,0,58.4z"></path>
+                        </svg>
+                      </div>
                     </div>
-                    <div class="seofy-hexagon">
-                      <svg style="filter: drop-shadow(4px 5px 4px rgba(50,36,233,0.3)); fill: #3224e9;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177.4 197.4">
-                        <path d="M0,58.4v79.9c0,6.5,3.5,12.6,9.2,15.8l70.5,40.2c5.6,3.2,12.4,3.2,18,0l70.5-40.2c5.7-3.2,9.2-9.3,9.2-15.8V58.4 c0-6.5-3.5-12.6-9.2-15.8L97.7,2.4c-5.6-3.2-12.4-3.2-18,0L9.2,42.5C3.5,45.8,0,51.8,0,58.4z"></path>
-                      </svg>
-                    </div>
-                    <h4 class="time-line-date text-[#005b88]">Have Your Treatment</h4>
+                    <h4 class="time-line-date text-[#005b88] md:absolute pr-0 md:pr-[50px] mt-4 md:mt-0 ">Have Your Treatment</h4>
                   </div>
-                  <div class="time-line-content">
+                  <div class="time-line-content mt-[20px] md:mt-0 z-40">
                     <div class="time-line-descr text-gray-600"> Once you arrive, you'll be given a warm welcome and taken through every step of the treatment. Our team of experienced professionals will ensure you receive the highest level of care, personalized to your specific needs. </div>
                   </div>
                 </div>
-                <div id="time-line-6" class="company-time-line-item item-show">
-                  <div class="time-line-date-wrap">
+                <div id="time-line-6" class="company-time-line-item item-show flex flex-col md:flex-row mt-[40px] md:mt-0">
+                    <div class="time-line-date-wrap flex flex-col items-center justify-center md:flex-row">
                     <div class="seofy-hexagon">
                       <svg style=" fill: #84cc16;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177.4 197.4">
                         <path d="M0,58.4v79.9c0,6.5,3.5,12.6,9.2,15.8l70.5,40.2c5.6,3.2,12.4,3.2,18,0l70.5-40.2c5.7-3.2,9.2-9.3,9.2-15.8V58.4 c0-6.5-3.5-12.6-9.2-15.8L97.7,2.4c-5.6-3.2-12.4-3.2-18,0L9.2,42.5C3.5,45.8,0,51.8,0,58.4z"></path>
                       </svg>
+                      <div class="seofy-hexagon">
+                        <svg style="filter: drop-shadow(4px 5px 4px rgba(31, 255, 31, 0.3)); fill: #84cc16;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177.4 197.4">
+                          <path d="M0,58.4v79.9c0,6.5,3.5,12.6,9.2,15.8l70.5,40.2c5.6,3.2,12.4,3.2,18,0l70.5-40.2c5.7-3.2,9.2-9.3,9.2-15.8V58.4 c0-6.5-3.5-12.6-9.2-15.8L97.7,2.4c-5.6-3.2-12.4-3.2-18,0L9.2,42.5C3.5,45.8,0,51.8,0,58.4z"></path>
+                        </svg>
+                      </div>
                     </div>
-                    <div class="seofy-hexagon">
-                      <svg style="filter: drop-shadow(4px 5px 4px rgba(31, 255, 31, 0.3)); fill: #84cc16;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177.4 197.4">
-                        <path d="M0,58.4v79.9c0,6.5,3.5,12.6,9.2,15.8l70.5,40.2c5.6,3.2,12.4,3.2,18,0l70.5-40.2c5.7-3.2,9.2-9.3,9.2-15.8V58.4 c0-6.5-3.5-12.6-9.2-15.8L97.7,2.4c-5.6-3.2-12.4-3.2-18,0L9.2,42.5C3.5,45.8,0,51.8,0,58.4z"></path>
-                      </svg>
-                    </div>
-                    <h4 class="time-line-date text-[#005b88]">Fly Back To Home</h4>
+                    <h4 class="time-line-date text-[#005b88] md:absolute pr-0 md:pr-[50px] mt-4 md:mt-0 ">Fly Back To Home</h4>
                   </div>
-                  <div class="time-line-content">
+                  <div class="time-line-content mt-[20px] md:mt-0 z-40">
                     <div class="time-line-descr text-gray-600">When your treatment is completed, you'll be provided with all the necessary post-treatment instructions and travel arrangements to fly back home.</div>
                   </div>
                 </div>
